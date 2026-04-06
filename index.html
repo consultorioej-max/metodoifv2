@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tráfego para Dentistas</title>
+    <meta
+      name="description"
+      content="Aprenda a atrair pacientes todos os dias com tráfego pago e conteúdo, sem depender de agência."
+    />
+    <style>
+      :root {
+        --bg: #f3f7fb;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --blue: #2563eb;
+        --cyan: #06b6d4;
+        --green: #10b981;
+        --line: #dbe4ef;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 15% 0%, #e0f2fe 0%, transparent 30%), radial-gradient(circle at 100% 20%, #dcfce7 0%, transparent 30%), var(--bg);
+      }
+      .container { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
+      .section { padding: 4.5rem 0; }
+      .grid { display: grid; gap: 1rem; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 0; text-decoration: none; cursor: pointer;
+        border-radius: 14px; padding: .9rem 1.35rem; font-weight: 700;
+        color: #fff; background: linear-gradient(120deg, var(--blue), var(--cyan));
+        box-shadow: 0 14px 30px rgba(37,99,235,.28); transition: .25s ease;
+      }
+      .btn:hover { transform: translateY(-2px) scale(1.01); box-shadow: 0 16px 34px rgba(37,99,235,.35); }
+      .muted { color: var(--muted); }
+      .pill { border: 1px solid var(--line); background: #fff; padding: .45rem .75rem; border-radius: 999px; font-size: .85rem; }
+      .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 1.15rem; box-shadow: 0 10px 24px rgba(15,23,42,.05); }
+      .title { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; margin: 0 0 .7rem; }
+      .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center; padding: 5.5rem 0 4rem; }
+      .topbar {
+        position: sticky; top: 0; z-index: 30; backdrop-filter: blur(10px);
+        background: rgba(255,255,255,.85); border-bottom: 1px solid var(--line);
+      }
+      .topbar-wrap { min-height: 64px; display:flex; justify-content:space-between; align-items:center; }
+      .mock {
+        position: relative; background: #fff; border: 1px solid var(--line); border-radius: 24px;
+        padding: 1rem; box-shadow: 0 25px 55px rgba(37,99,235,.2);
+      }
+      .mock-head { border-radius: 16px; padding: 1.15rem; color:#fff; background: linear-gradient(135deg, #2563eb, #06b6d4); }
+      .float {
+        position: absolute; border: 1px solid #bae6fd; background: #ecfeff; color: #0e7490;
+        border-radius: 12px; padding: .4rem .7rem; font-size: .78rem; font-weight: 700; animation: levitate 3s ease-in-out infinite;
+      }
+      .float.two { right: -14px; bottom: 26px; animation-delay: .5s; }
+      .float.one { left: -14px; top: 34px; }
+      @keyframes levitate { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-8px);} }
+      .cmp { overflow: hidden; border-radius: 22px; border:1px solid var(--line); display:grid; grid-template-columns:1fr 1fr; }
+      .cmp > div { padding: 1.4rem; }
+      .cmp .left { background: #eff6ff; }
+      .faq-item { border:1px solid var(--line); border-radius: 14px; background:#fff; overflow:hidden; }
+      .faq-btn { width:100%; border:0; background:transparent; text-align:left; padding: 1rem; font-weight:700; display:flex; justify-content:space-between; gap:1rem; cursor:pointer; }
+      .faq-content { max-height:0; overflow:hidden; transition:max-height .3s ease; padding: 0 1rem; }
+      .faq-item.active .faq-content { max-height: 180px; padding: 0 1rem 1rem; }
+      .split { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+      .three { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+      .sticky-mobile {
+        position: fixed; left: 0; right:0; bottom: 0; z-index: 50;
+        padding:.65rem .9rem; background: rgba(255,255,255,.94); border-top:1px solid var(--line); backdrop-filter: blur(10px); display:none;
+      }
+      .offer {
+        border:1px solid #93c5fd; color:#fff; border-radius:24px; padding:2rem;
+        background: linear-gradient(145deg, #2563eb, #1d4ed8 40%, #0891b2);
+        box-shadow: 0 28px 60px rgba(29,78,216,.35);
+      }
+      [data-animate] { opacity:0; transform: translateY(24px) scale(.98); transition: .6s ease; }
+      [data-animate].show { opacity:1; transform: none; }
+      footer { border-top:1px solid var(--line); background:#fff; }
+
+      @media (max-width: 960px) {
+        .hero, .split, .three, .cmp { grid-template-columns:1fr; }
+      }
+      @media (max-width: 768px) {
+        .section { padding: 3.3rem 0; }
+        .topbar .btn { padding: .65rem .9rem; font-size: .85rem; }
+        .sticky-mobile { display:block; }
+        body { padding-bottom: 74px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-wrap">
+        <strong>Tráfego para Dentistas</strong>
+        <a href="#oferta" class="btn">Quero começar agora</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero">
+        <div data-animate>
+          <p class="pill" style="display:inline-flex;gap:.4rem;">✨ Método validado na rotina clínica</p>
+          <h1 class="title" style="font-size:clamp(2rem,4vw,3.2rem);margin-top:.8rem;">Aprenda a atrair pacientes todos os dias e se tornar referência na sua cidade com tráfego pago e conteúdo — sem depender de agência.</h1>
+          <p class="muted" style="font-size:1.08rem;max-width:58ch;">Um passo a passo direto para dentistas que querem previsibilidade de agenda, clareza para investir e autonomia para escalar com segurança.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0 1.2rem;">
+            <span class="pill">Método prático</span><span class="pill">Feito para a clínica</span><span class="pill">Sem depender de agência</span><span class="pill">Aplicação direta</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;">
+            <a href="#oferta" class="btn">Quero aprender tráfego pago</a>
+            <strong>Mais de R$ 500.000 investidos em anúncios na prática</strong>
+          </div>
+        </div>
+        <div class="mock" data-animate>
+          <div class="mock-head">
+            <div style="opacity:.9;font-size:.9rem;">Curso Digital</div>
+            <h2 style="margin:.35rem 0 .25rem;">Tráfego para Dentistas</h2>
+            <div style="opacity:.9;">Do planejamento à escala com clareza.</div>
+          </div>
+          <div class="grid" style="margin-top:.8rem;">
+            <div class="card" style="padding:0;overflow:hidden;">
+              <img src="images/hero-mockup.png" alt="Mockup do curso Tráfego para Dentistas" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;" />
+            </div>
+            <div class="card">🎥 Conteúdo com mensagem certa</div>
+            <div class="card">📈 Métricas que orientam decisão</div>
+          </div>
+          <span class="float one">+ previsibilidade</span>
+          <span class="float two">+ autonomia</span>
+        </div>
+      </section>
+
+      <section class="section" style="background:#fff;">
+        <div class="container">
+          <h2 class="title" data-animate>Se você está cansado de investir sem saber o que realmente funciona, você não está sozinho.</h2>
+          <p class="muted" data-animate>Você não precisa de mais “dicas soltas”. Precisa de um método que te diga o que fazer, em qual ordem e como ajustar para transformar anúncio em paciente.</p>
+          <div class="split" style="margin-top:1rem;">
+            <div class="card" data-animate>Você depende de indicação e vive sem previsibilidade no calendário.</div>
+            <div class="card" data-animate>Já pagou agência, mas continuou sem entender nada do processo.</div>
+            <div class="card" data-animate>Impulsionou sem estratégia e atraiu só curiosos.</div>
+            <div class="card" data-animate>Produz conteúdo, mas não sabe o que gera agendamento.</div>
+            <div class="card" data-animate>Investe em anúncio e não enxerga com clareza o que deu retorno.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="title" style="text-align:center;" data-animate>Para quem é o curso</h2>
+          <div class="three" style="margin-top:1rem;">
+            <div class="card" data-animate>Clínicas iniciantes</div>
+            <div class="card" data-animate>Clínicas estruturadas</div>
+            <div class="card" data-animate>Estética odontológica</div>
+            <div class="card" data-animate>Implantes e prótese</div>
+            <div class="card" data-animate>Ortodontia e alinhadores</div>
+            <div class="card" data-animate>Clínicas gerais</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background:#0f172a;color:#fff;">
+        <div class="container">
+          <h2 class="title" data-animate>O que você vai aprender</h2>
+          <div class="three" style="margin-top:1rem;">
+            <div class="card" data-animate style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#fff;">Campanhas sem achismo<br><small style="opacity:.8;">Crie anúncios com clareza e direção.</small></div>
+            <div class="card" data-animate style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#fff;">Paciente certo no funil<br><small style="opacity:.8;">Atraia quem tem intenção real de tratamento.</small></div>
+            <div class="card" data-animate style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#fff;">Vídeos que convertem<br><small style="opacity:.8;">Conteúdo que gera atenção e confiança.</small></div>
+            <div class="card" data-animate style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#fff;">Leitura de métricas<br><small style="opacity:.8;">Saiba o que ajustar e quando ajustar.</small></div>
+            <div class="card" data-animate style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#fff;">Autonomia de execução<br><small style="opacity:.8;">Pare de depender de terceiros para decidir.</small></div>
+            <div class="card" data-animate style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#fff;">Escala com controle<br><small style="opacity:.8;">Aumente investimento sem perder eficiência.</small></div>
+          </div>
+          <div style="margin-top:1.1rem;"><a href="#oferta" class="btn">Quero aplicar na minha clínica</a></div>
+        </div>
+      </section>
+
+      <section class="section" style="background:#fff;">
+        <div class="container">
+          <h2 class="title" data-animate>Por que este método é diferente</h2>
+          <div class="cmp" data-animate>
+            <div class="left"><h3>Tráfego para Dentistas</h3><p>✅ Direto ao ponto<br>✅ Aplicável à rotina clínica<br>✅ Sem teoria solta<br>✅ Clareza para decidir com segurança</p></div>
+            <div><h3>Conteúdo genérico / tentativa e erro</h3><p>❌ Dicas desconectadas<br>❌ Dependência de terceiros<br>❌ Falta de visibilidade dos resultados<br>❌ Gastos sem previsibilidade</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split">
+          <div class="card" data-animate style="background:linear-gradient(135deg,#eff6ff,#ecfeff);">
+            <img src="images/dr-eder-junior.jpg" alt="Foto do Dr. Eder Junior" style="width:110px;height:110px;border-radius:999px;object-fit:cover;display:block;margin:auto;border:3px solid #fff;" />
+            <h3 style="text-align:center;margin:.7rem 0 0;">Dr. Eder Junior</h3>
+            <p style="text-align:center" class="muted">Dentista e mentor em tráfego para clínicas</p>
+          </div>
+          <div data-animate>
+            <h2 class="title">Quem está por trás do método</h2>
+            <p class="muted">Sou dentista e aprendi tráfego pago dentro da clínica, investindo meu próprio dinheiro e validando estratégias na prática — sem atalhos e sem promessas irreais.</p>
+            <p class="muted">Depois de mais de <strong style="color:#1d4ed8;">R$ 500.000 investidos em anúncios</strong>, entendi o que realmente funciona para atrair pacientes com consistência.</p>
+            <p class="muted">Criei este método para ajudar dentistas a anunciar com clareza, segurança e previsibilidade, com independência para tomar decisões melhores.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background:#fff;">
+        <div class="container">
+          <h2 class="title" style="text-align:center;" data-animate>Prova social</h2>
+          <div class="three" style="margin-top:1rem;">
+            <div class="card" data-animate><img src="images/testimonials/marcos-queiroz.jpg" alt="Dr. Marcos Queiroz" style="width:52px;height:52px;border-radius:999px;object-fit:cover;display:block;margin-bottom:.6rem;" />★★★★★<p>“Eu sempre tive receio de anunciar por conta própria. O método deixou tudo claro e hoje sei exatamente o que estou fazendo nos anúncios.”</p><strong>Dr. Marcos Queiroz</strong></div>
+            <div class="card" data-animate><img src="images/testimonials/alessandra-soares.jpg" alt="Dra. Alessandra Soares" style="width:52px;height:52px;border-radius:999px;object-fit:cover;display:block;margin-bottom:.6rem;" />★★★★★<p>“Não é curso cheio de teoria. É direto ao ponto, pensado pra rotina da clínica. Consegui rodar meus primeiros anúncios com segurança.”</p><strong>Dra. Alessandra Soares</strong></div>
+            <div class="card" data-animate><img src="images/testimonials/pedro-hezequiel.jpg" alt="Dr. Pedro Hezequiel" style="width:52px;height:52px;border-radius:999px;object-fit:cover;display:block;margin-bottom:.6rem;" />★★★★★<p>“O maior diferencial foi entender o porquê das decisões. Parei de testar no escuro e comecei a investir com mais confiança.”</p><strong>Dr. Pedro Hezequiel</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="title" data-animate>Veja tudo o que você recebe ao entrar no curso</h2>
+          <div class="three" style="margin-top:1rem;">
+            <div class="card" data-animate>✅ Curso completo do básico ao avançado</div>
+            <div class="card" data-animate>✅ Método prático aplicável</div>
+            <div class="card" data-animate>✅ Aulas claras e objetivas</div>
+            <div class="card" data-animate>✅ Estratégia de conteúdo</div>
+            <div class="card" data-animate>✅ Base sólida para anúncios</div>
+            <div class="card" data-animate>✅ Clareza para investir com segurança</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="oferta">
+        <div class="container">
+          <div class="offer" data-animate>
+            <small>Oferta especial</small>
+            <h2 class="title" style="margin-top:.45rem;color:#fff;">Tudo isso deveria custar R$ 1.285,00</h2>
+            <p style="opacity:.92;">Mas hoje você tem acesso ao curso Tráfego para Dentistas junto com todos os bônus por apenas...</p>
+            <div class="card" style="margin-top:.8rem;background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:#fff;">
+              <small>Espaço reservado para o valor final</small>
+              <div style="font-size:2.1rem;font-weight:900;">R$ ___</div>
+            </div>
+            <div style="margin-top:1rem;"><a class="btn" href="#oferta">Quero começar agora</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background:#0f172a;color:#fff;">
+        <div class="container" style="text-align:center;">
+          <h2 class="title" style="color:#fff;" data-animate>Você pode seguir na inconstância — ou assumir o controle do crescimento da sua clínica.</h2>
+          <p style="opacity:.88;" data-animate>Continuar no improviso custa caro. Aplicar método traz clareza, confiança e previsibilidade.</p>
+          <div style="margin-top:1rem;"><a class="btn" href="#oferta">Sim, quero anunciar com método</a></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container" style="max-width:860px;">
+          <h2 class="title" style="text-align:center;" data-animate>Perguntas frequentes</h2>
+          <div class="grid" style="margin-top:1rem;">
+            <div class="faq-item"><button class="faq-btn">Esse curso é para quem está começando?<span>⌄</span></button><div class="faq-content"><p>Sim. O conteúdo começa do essencial e evolui com foco na prática.</p></div></div>
+            <div class="faq-item"><button class="faq-btn">Funciona para clínica pequena?<span>⌄</span></button><div class="faq-content"><p>Funciona. O método é adaptável ao momento e orçamento da clínica.</p></div></div>
+            <div class="faq-item"><button class="faq-btn">Preciso já anunciar para fazer?<span>⌄</span></button><div class="faq-content"><p>Não. Você aprende desde a base até campanhas com segurança.</p></div></div>
+            <div class="faq-item"><button class="faq-btn">Vou aprender a gravar conteúdos também?<span>⌄</span></button><div class="faq-content"><p>Sim. Você recebe direcionamento para criar conteúdo que converte.</p></div></div>
+            <div class="faq-item"><button class="faq-btn">Serve para qualquer área da odontologia?<span>⌄</span></button><div class="faq-content"><p>Sim. Vale para clínica geral e especialidades.</p></div></div>
+            <div class="faq-item"><button class="faq-btn">Em quanto tempo consigo aplicar?<span>⌄</span></button><div class="faq-content"><p>Você já consegue aplicar ações práticas nas primeiras aulas.</p></div></div>
+            <div class="faq-item"><button class="faq-btn">Vou depender de agência?<span>⌄</span></button><div class="faq-content"><p>Não. A proposta é autonomia com clareza de decisão.</p></div></div>
+            <div class="faq-item"><button class="faq-btn">O curso é teórico ou prático?<span>⌄</span></button><div class="faq-content"><p>Prático e objetivo, para executar na rotina da clínica.</p></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="section" style="padding:2.2rem 0;background:#fff;">
+      <div class="container split" style="align-items:start;">
+        <div>
+          <strong>Tráfego para Dentistas</strong>
+          <p class="muted">Copyright © 2026. Todos os direitos reservados.</p>
+        </div>
+        <div>
+          <p><strong>Contato:</strong> dredercursos@gmail.com</p>
+          <p><strong>WhatsApp:</strong> (34) 99805-3420</p>
+          <p class="muted">Este produto não é afiliado ao Facebook e não garante resultados específicos. Resultados variam conforme execução.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="sticky-mobile"><a class="btn" href="#oferta" style="width:100%;">Quero começar agora</a></div>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('show')
+        })
+      }, { threshold: .14 })
+      document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el))
+
+      document.querySelectorAll('.faq-item').forEach((item) => {
+        item.querySelector('.faq-btn').addEventListener('click', () => {
+          const isActive = item.classList.contains('active')
+          document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('active'))
+          if (!isActive) item.classList.add('active')
+        })
+      })
+    </script>
+  </body>
+</html>
