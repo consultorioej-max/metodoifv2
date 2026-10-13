@@ -1,0 +1,284 @@
+{
+  "title": "Questionário Inicial – Acompanhamento Nutricional",
+  "settings": {
+    "language": "pt",
+    "show_progress_bar": true
+  },
+  "welcome_screens": [
+    {
+      "ref": "boas_vindas",
+      "title": "Questionário Inicial – Acompanhamento Nutricional\nDra. Laila Vieira | Nutricionista",
+      "properties": {
+        "show_button": true,
+        "button_text": "Começar",
+        "description": "Para que eu possa conhecer melhor você, sua rotina e seus objetivos, preparei algumas perguntas importantes. Suas respostas vão me ajudar a desenvolver um plano alimentar personalizado, respeitando suas necessidades, preferências e estilo de vida."
+      }
+    }
+  ],
+  "thankyou_screens": [
+    {
+      "ref": "obrigado",
+      "title": "Obrigada por responder! Em breve entrarei em contato.",
+      "properties": {
+        "show_button": false,
+        "share_icons": false
+      }
+    }
+  ],
+  "fields": [
+    {
+      "ref": "nome",
+      "title": "1.1. Nome completo",
+      "type": "short_text",
+      "properties": {},
+      "validations": {
+        "required": true
+      }
+    },
+    {
+      "ref": "nascimento",
+      "title": "1.2. Data de nascimento",
+      "type": "date",
+      "properties": {
+        "structure": "DDMMYYYY",
+        "separator": "/"
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "cpf",
+      "title": "1.3. CPF",
+      "type": "short_text",
+      "properties": {},
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "rg",
+      "title": "1.4. RG",
+      "type": "short_text",
+      "properties": {},
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "endereco",
+      "title": "1.5. Endereço completo",
+      "type": "short_text",
+      "properties": {
+        "description": "Rua, número, bairro, cidade e estado."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "cep",
+      "title": "1.6. CEP",
+      "type": "short_text",
+      "properties": {},
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "sexo",
+      "title": "1.7. Sexo",
+      "type": "multiple_choice",
+      "properties": {
+        "choices": [
+          {
+            "label": "Feminino"
+          },
+          {
+            "label": "Masculino"
+          },
+          {
+            "label": "Prefiro não informar"
+          }
+        ]
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "idade",
+      "title": "1.8. Idade",
+      "type": "number",
+      "properties": {},
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "altura",
+      "title": "1.9. Altura",
+      "type": "short_text",
+      "properties": {
+        "description": "Ex.: 1,65 m"
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "peso",
+      "title": "1.10. Peso atual",
+      "type": "short_text",
+      "properties": {
+        "description": "Ex.: 70 kg"
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "objetivo",
+      "title": "2. Qual é o seu principal objetivo com o acompanhamento nutricional?",
+      "type": "long_text",
+      "properties": {
+        "description": "Exemplos: emagrecer, ganhar massa muscular, melhorar a saúde, ter mais disposição ou melhorar a alimentação."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "fisico",
+      "title": "3. Como você descreveria seu físico atualmente?",
+      "type": "long_text",
+      "properties": {
+        "description": "Conte como você se percebe fisicamente hoje e se existe algo que gostaria de melhorar."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "mudar_corpo",
+      "title": "4. O que você gostaria de mudar no seu corpo?",
+      "type": "long_text",
+      "properties": {
+        "description": "Exemplos: reduzir gordura abdominal, ganhar massa muscular, melhorar a definição muscular ou modificar alguma região específica."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "meta_peso",
+      "title": "5. Você tem uma meta de peso que gostaria de alcançar?",
+      "type": "short_text",
+      "properties": {
+        "description": "Se sim, qual seria o peso desejado?"
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "comport_peso",
+      "title": "6. Como seu peso costuma se comportar?",
+      "type": "long_text",
+      "properties": {
+        "description": "Você sente facilidade para ganhar peso, facilidade para perder peso ou tem dificuldade para perceber mudanças na balança?"
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "rotina",
+      "title": "7. Como é sua rotina durante a semana?",
+      "type": "long_text",
+      "properties": {
+        "description": "Conte um pouco sobre seu trabalho, horários, atividades do dia a dia e como costuma organizar suas refeições."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "agua",
+      "title": "8. Qual é a sua ingestão média de água por dia?",
+      "type": "short_text",
+      "properties": {
+        "description": "Informe aproximadamente quantos litros ou copos de água costuma beber diariamente."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "alimentacao",
+      "title": "9. Como você descreveria sua alimentação atualmente?",
+      "type": "long_text",
+      "properties": {
+        "description": "Você segue algum padrão alimentar específico, como alimentação vegetariana, vegana ou outra? Ou costuma consumir alimentos variados?"
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "vontades",
+      "title": "10. Quais alimentos ou bebidas você sente mais vontade de consumir?",
+      "type": "long_text",
+      "properties": {
+        "description": "Exemplos: doces, chocolates, massas, salgados, refrigerantes ou bebidas alcoólicas."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "alcool",
+      "title": "11. Com que frequência você consome bebidas alcoólicas?",
+      "type": "short_text",
+      "properties": {
+        "description": "Exemplos: não consumo, raramente, apenas nos finais de semana ou várias vezes durante a semana."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "alergia",
+      "title": "12. Você possui alguma alergia ou intolerância alimentar?",
+      "type": "long_text",
+      "properties": {
+        "description": "Se sim, informe quais alimentos ou ingredientes precisam ser evitados."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "intestino",
+      "title": "13. Com que frequência seu intestino funciona?",
+      "type": "short_text",
+      "properties": {
+        "description": "Exemplos: diariamente, em dias alternados ou apenas algumas vezes por semana."
+      },
+      "validations": {
+        "required": false
+      }
+    },
+    {
+      "ref": "suplementos",
+      "title": "14. Você utiliza algum suplemento alimentar atualmente?",
+      "type": "long_text",
+      "properties": {
+        "description": "Se sim, informe quais suplementos utiliza e, se souber, as respectivas quantidades ou doses."
+      },
+      "validations": {
+        "required": false
+      }
+    }
+  ]
+}
